@@ -1,0 +1,8 @@
+prefix=/home/shallom/object_locator/devel
+
+Name: locator
+Description: Description of locator
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/shallom/object_locator/devel/lib 
+Requires: 

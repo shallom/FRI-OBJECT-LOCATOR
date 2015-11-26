@@ -1,0 +1,82 @@
+
+#include <cstdio>
+#include <cstdlib>
+//#include "segment.h"
+#include "ros/ros.h"
+#include <fstream>
+#include "image.h"
+#include "misc.h"
+#include "image.h"
+#include "segment-image.h"
+
+#define BUF_SIZE 256
+
+class pnm_error { };
+
+/* read PNM field, skipping comments */ 
+static void pnm_read(std::ifstream &file, char *buf) {
+  char doc[BUF_SIZE];
+  char c;
+  
+  file >> c;
+  while (c == '#') {
+    file.getline(doc, BUF_SIZE);
+    file >> c;
+  }
+  file.putback(c);
+  
+  file.width(BUF_SIZE);
+  file >> buf;
+  file.ignore();
+}
+
+static image<rgb> *loadPPM(const char *name) {
+  char buf[BUF_SIZE], doc[BUF_SIZE];
+  
+  /* read header */
+  std::ifstream file(name, std::ios::in | std::ios::binary);
+  pnm_read(file, buf);
+//uncommented because of weird error
+	//printf(buf);
+	//printf("\n");
+        //printf(name);
+	//printf("\n");	
+
+       
+  if (strncmp(buf, "P6", 2))
+    throw pnm_error();
+
+  pnm_read(file, buf);
+  int width = atoi(buf);
+  pnm_read(file, buf);
+  int height = atoi(buf);
+
+  pnm_read(file, buf);
+  if (atoi(buf) > UCHAR_MAX)
+    throw pnm_error();
+
+  /* read data */
+  image<rgb> *im = new image<rgb>(width, height);
+  file.read((char *)imPtr(im, 0, 0), width * height * sizeof(rgb));
+
+  return im;
+}
+
+int main(int argc, char **argv) {
+
+float sigma=.8;
+  float k=400;
+  int min_size=200;
+  image<rgb> *input = loadPPM(pic);
+  int components;
+
+   image<rgb> *seg = segment_image(input, sigma, k, min_size, &components);
+
+ delete seg;
+ return components;
+//printf("got %d components\n", numberOfComponents("frame.ppm"));
+  //printf("done! uff...thats hard work.\n");
+
+  return 0;
+}
+

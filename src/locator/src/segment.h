@@ -13,9 +13,7 @@ int numberOfComponents(const char* pic){
   float sigma=.8;
   float k=400;
   int min_size=200;
-  
   image<rgb> *input = loadPPM(pic);
-
   int components;
 
   image<rgb> *seg = segment_image(input, sigma, k, min_size, &components);
