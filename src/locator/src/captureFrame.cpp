@@ -25,7 +25,6 @@ int main(int argc, char** argv)
      Mat frame;
     while (true)
     {
-        //ros::spin();
         cap >> frame; // get a new frame from camera
 	if(frame.empty())//if the a fram wasn't recived throw an exception
 		throw readFrameError();
@@ -42,7 +41,9 @@ int main(int argc, char** argv)
 	}
         imshow("frames", frame);
         if(waitKey(30) >= 0) break;
+	if(ros::ok()) ros::spinOnce();
     }
     // the camera will be deinitialized automatically in VideoCapture destructor
+
     return 0;
 }
