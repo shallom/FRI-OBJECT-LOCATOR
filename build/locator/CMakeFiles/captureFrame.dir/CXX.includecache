@@ -17,6 +17,8 @@ string
 -
 segment.h
 /home/shallom/object_locator/src/locator/src/segment.h
+fileInputOutput.h
+/home/shallom/object_locator/src/locator/src/fileInputOutput.h
 ros/ros.h
 /home/shallom/object_locator/src/locator/src/ros/ros.h
 
@@ -31,6 +33,14 @@ image.h
 /home/shallom/object_locator/src/locator/src/image.h
 
 /home/shallom/object_locator/src/locator/src/disjoint-set.h
+
+/home/shallom/object_locator/src/locator/src/fileInputOutput.h
+iostream
+-
+fstream
+-
+string
+-
 
 /home/shallom/object_locator/src/locator/src/filter.h
 vector

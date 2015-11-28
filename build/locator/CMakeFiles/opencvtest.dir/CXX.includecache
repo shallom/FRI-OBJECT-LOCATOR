@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/shallom/object_locator/src/locator/src/opencvtest.cpp
+opencv2/features2d/features2d.hpp
+/home/shallom/object_locator/src/locator/src/opencv2/features2d/features2d.hpp
+opencv2/opencv.hpp
+-
+vector
+-
+iostream
+-
+cstdio
+-
+cstdlib
+-
+string
+-
+

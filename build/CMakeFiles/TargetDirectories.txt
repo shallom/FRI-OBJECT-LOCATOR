@@ -5,6 +5,7 @@
 /home/shallom/object_locator/build/CMakeFiles/doxygen.dir
 /home/shallom/object_locator/build/gtest/CMakeFiles/gtest.dir
 /home/shallom/object_locator/build/gtest/CMakeFiles/gtest_main.dir
+/home/shallom/object_locator/build/locator/CMakeFiles/opencvtest.dir
 /home/shallom/object_locator/build/locator/CMakeFiles/roscpp_generate_messages_cpp.dir
 /home/shallom/object_locator/build/locator/CMakeFiles/roscpp_generate_messages_lisp.dir
 /home/shallom/object_locator/build/locator/CMakeFiles/roscpp_generate_messages_py.dir

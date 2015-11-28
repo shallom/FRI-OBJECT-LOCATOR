@@ -5,6 +5,7 @@ locator/CMakeFiles/captureFrame.dir/src/captureFrame.cpp.o
  /home/shallom/object_locator/src/locator/src/captureFrame.cpp
  /home/shallom/object_locator/src/locator/src/convolve.h
  /home/shallom/object_locator/src/locator/src/disjoint-set.h
+ /home/shallom/object_locator/src/locator/src/fileInputOutput.h
  /home/shallom/object_locator/src/locator/src/filter.h
  /home/shallom/object_locator/src/locator/src/image.h
  /home/shallom/object_locator/src/locator/src/imconv.h

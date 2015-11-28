@@ -18,6 +18,8 @@ target_link_libraries(captureFrame ${catkin_LIBRARIES} ${OpenCV_LIBS})
 add_executable(opencvtest src/opencvtest.cpp)
 target_link_libraries(opencvtest ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/developments/opencv/install/opencv/* -D WITH_CUDA=ON -D CUDA_TOOLKIT_ROOT_DIR=/usr/local/cuda/ ..
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 

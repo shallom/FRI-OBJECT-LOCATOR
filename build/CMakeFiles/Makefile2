@@ -321,10 +321,12 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 
 # Convenience name for "all" pass in the directory.
 locator/all: locator/CMakeFiles/captureFrame.dir/all
+locator/all: locator/CMakeFiles/opencvtest.dir/all
 .PHONY : locator/all
 
 # Convenience name for "clean" pass in the directory.
 locator/clean: locator/CMakeFiles/captureFrame.dir/clean
+locator/clean: locator/CMakeFiles/opencvtest.dir/clean
 locator/clean: locator/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 locator/clean: locator/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 locator/clean: locator/CMakeFiles/roscpp_generate_messages_py.dir/clean
@@ -373,6 +375,41 @@ locator/CMakeFiles/captureFrame.dir/clean:
 
 # clean rule for target.
 clean: locator/CMakeFiles/captureFrame.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target locator/CMakeFiles/opencvtest.dir
+
+# All Build rule for target.
+locator/CMakeFiles/opencvtest.dir/all:
+	$(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/depend
+	$(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  4
+	@echo "Built target opencvtest"
+.PHONY : locator/CMakeFiles/opencvtest.dir/all
+
+# Include target in all.
+all: locator/CMakeFiles/opencvtest.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+locator/CMakeFiles/opencvtest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shallom/object_locator/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/opencvtest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shallom/object_locator/build/CMakeFiles 0
+.PHONY : locator/CMakeFiles/opencvtest.dir/rule
+
+# Convenience name for target.
+opencvtest: locator/CMakeFiles/opencvtest.dir/rule
+.PHONY : opencvtest
+
+# clean rule for target.
+locator/CMakeFiles/opencvtest.dir/clean:
+	$(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/clean
+.PHONY : locator/CMakeFiles/opencvtest.dir/clean
+
+# clean rule for target.
+clean: locator/CMakeFiles/opencvtest.dir/clean
 .PHONY : clean
 
 #=============================================================================

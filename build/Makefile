@@ -267,6 +267,19 @@ captureFrame/fast:
 .PHONY : captureFrame/fast
 
 #=============================================================================
+# Target rules for targets named opencvtest
+
+# Build rule for target.
+opencvtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 opencvtest
+.PHONY : opencvtest
+
+# fast build rule for target.
+opencvtest/fast:
+	$(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/build
+.PHONY : opencvtest/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -405,6 +418,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... captureFrame"
+	@echo "... opencvtest"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
