@@ -21,6 +21,8 @@ fileInputOutput.h
 /home/shallom/object_locator/src/locator/src/fileInputOutput.h
 ros/ros.h
 /home/shallom/object_locator/src/locator/src/ros/ros.h
+sstream
+-
 
 /home/shallom/object_locator/src/locator/src/convolve.h
 vector

@@ -33,7 +33,7 @@ class readFrameError{ };
 int sendImg(const char* filename)
 {
 	char s[100];
-	const char *front="./cloud-curl.sh ", *end =" | tee ../object_locator/src/locator/src/token.txt";
+	const char *front="./cloud-curl.sh ", *end =" | tee token.txt";
   	strcpy(s,front);
 	strcat(s, filename);
 	strcat(s, end);
@@ -46,7 +46,7 @@ int sendImg(const char* filename)
 int getResponse(string token)
 {
 	char s[100];
-	const char *front="./cloud-curl-resp.sh ", *end =" | tee ../object_locator/src/locator/src/output.txt";
+	const char *front="./cloud-curl-resp.sh ", *end =" | tee output.txt";
 	strcpy(s,front);
 	cout << s << "\n";
 	strcat(s, token.c_str());
@@ -64,11 +64,11 @@ int main(int argc, char** argv)
 	ros::NodeHandle nh;
 
 	while(true){
-		sendImg("../object_locator/src/locator/src/test2.JPG");
-		while(readFromFile("../object_locator/src/locator/src/token.txt").compare("")!=0){
-			getResponse(readFromFile("../object_locator/src/locator/src/token.txt"));
-			cout << "token "<< readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
-			cout << readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
+		sendImg("test2.JPG");
+		while(readFromFile("../object_locator/token.txt").compare("")!=0){
+			getResponse(readFromFile("token.txt"));
+			cout << "token "<< readFromFile("output.txt") << "\n";
+			cout << readFromFile("output.txt") << "\n";
 		}
 	}
 
