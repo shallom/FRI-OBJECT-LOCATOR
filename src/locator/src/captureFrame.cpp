@@ -24,10 +24,26 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include "segment.h"
 #include "fileInputOutput.h"
 #include "ros/ros.h"
+#include <stdlib.h>
 
 using namespace cv;
 
 class readFrameError{ };
+
+//Send image to cloudsight servers and write token to token.txt
+int sendImg(char** filename)
+{
+  std::string s = "./cloud-curl.sh " + filename + " | tee token.txt";
+  return system(s);
+
+}
+//Send token to cloudsight for a response and write output to output.txt (streamline this later)
+//Call this over and over again to poll for response
+int getResponse(char** token)
+{
+	std::string s = "./cloud-curl-resp.sh " + token +" | tee output.txt";
+	return system(s);
+}
 
 int main(int argc, char** argv)
 {
