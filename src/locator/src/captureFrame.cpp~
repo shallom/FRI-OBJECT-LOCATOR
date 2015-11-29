@@ -24,29 +24,30 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include "segment.h"
 #include "fileInputOutput.h"
 #include "ros/ros.h"
-#include <sstream>
 
 using namespace cv;
 
 class readFrameError{ };
 
+//Send image to cloudsight servers and write token to token.txt
+
 int sendImg(const char* filename)
 {
 	char s[100];
-	const char *front="./cloud-curl.sh ", *end =" | tee token.txt";
+	const char *front="./cloud-curl.sh ", *end =" | tee ../object_locator/src/locator/src/token.txt";
   	strcpy(s,front);
 	strcat(s, filename);
 	strcat(s, end);
 	cout << s << "\n";
   	system(s);
-
 }
+
 //Send token to cloudsight for a response and write output to output.txt (streamline this later)
 //Call this over and over again to poll for response
 int getResponse(string token)
 {
 	char s[100];
-	const char *front="./cloud-curl-resp.sh ", *end =" | tee output.txt";
+	const char *front="./cloud-curl-resp.sh ", *end =" | tee ../object_locator/src/locator/src/output.txt";
 	strcpy(s,front);
 	cout << s << "\n";
 	strcat(s, token.c_str());
@@ -56,7 +57,7 @@ int getResponse(string token)
 	system(s);
 }
 
-
+>>>>>>> ae970284b0628773f528b5ac7a9ad9b1a7b74f45
 int main(int argc, char** argv)
 {
     //inni ros
@@ -64,11 +65,11 @@ int main(int argc, char** argv)
 	ros::NodeHandle nh;
 
 	while(true){
-		sendImg("test2.JPG");
-		while(readFromFile("../object_locator/token.txt").compare("")!=0){
-			getResponse(readFromFile("token.txt"));
-			cout << "token "<< readFromFile("output.txt") << "\n";
-			cout << readFromFile("output.txt") << "\n";
+		sendImg("../object_locator/src/locator/src/test2.JPG");
+		while(readFromFile("../object_locator/src/locator/src/token.txt").compare("")!=0){
+			getResponse(readFromFile("../object_locator/src/locator/src/token.txt"));
+			cout << "token "<< readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
+			cout << readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
 		}
 	}
 
