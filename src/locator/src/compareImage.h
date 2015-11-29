@@ -47,7 +47,7 @@ int bruteForceDescriptorMatch(Mat image_1_descriptor, Mat image_2_descriptor){
 	}
 
 	vector< DMatch > good_matches;
-	//say a good match is a ,atch whose diesnce is less than there times the lower bound
+	//say a good match is a match whose distance is less than there times the lower bound
 	for( int i = 0; i < image_1_descriptor.rows; i++ ){
 		if( matches[i].distance <= 3*min_dist)
 			good_matches.push_back( matches[i]);

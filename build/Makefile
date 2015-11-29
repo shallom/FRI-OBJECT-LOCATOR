@@ -267,17 +267,17 @@ captureFrame/fast:
 .PHONY : captureFrame/fast
 
 #=============================================================================
-# Target rules for targets named opencvtest
+# Target rules for targets named doesFrameExistInDataBase
 
 # Build rule for target.
-opencvtest: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 opencvtest
-.PHONY : opencvtest
+doesFrameExistInDataBase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doesFrameExistInDataBase
+.PHONY : doesFrameExistInDataBase
 
 # fast build rule for target.
-opencvtest/fast:
-	$(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/build
-.PHONY : opencvtest/fast
+doesFrameExistInDataBase/fast:
+	$(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/build
+.PHONY : doesFrameExistInDataBase/fast
 
 #=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
@@ -418,7 +418,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... captureFrame"
-	@echo "... opencvtest"
+	@echo "... doesFrameExistInDataBase"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"

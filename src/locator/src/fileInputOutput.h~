@@ -21,8 +21,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "opencv2/opencv.hpp"
 
 using namespace std;
+using namespace cv;
 
 class file_error { };
 
@@ -37,12 +39,45 @@ string readFromFile(const char* outputFileLoc){
 		throw file_error();
 }
 
+vector<MAt> readDescriptorsFromFile(const char* outputFileLoc){
+if(outputFile.is_open()){
+		if(!readVector)
+			getline(outputFile, line);
+		else{
+			
+			while(getline(outputFile, line)){
+				int lineSize=line.size();
+				if()
+			}
+		}
+		outputFile.close();
+		return line;
+	}else
+		throw file_error();
+}
 
 
-bool writeToFile(string input, const char* inputFileLoc){
-	ofstream inputFile ("");
+
+bool writeToFile(const char* input, const char* inputFileLoc){
+	ofstream inputFile (inputFileLoc);
 	if(inputFile.is_open()){
 		inputFile << input;
+		inputFile.close();
+		return true;
+	}else
+		throw file_error();
+	return false;
+}
+
+bool writeDescriptorsToFile(vector<Mat> input, const char* inputFileLoc, bool addingToFile){
+	ofstream inputFile (inputFileLoc);
+	if(inputFile.is_open()){
+		if(!addingToFile)
+			for(int index=0; index<input.size(); index++)
+				inputFile << input.at(index);
+		else{
+			//vector<Mat> oldDescriptors=readDescriptorsFromFile();
+		}
 		inputFile.close();
 		return true;
 	}else

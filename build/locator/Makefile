@@ -164,18 +164,18 @@ captureFrame/fast:
 .PHONY : captureFrame/fast
 
 # Convenience name for target.
-locator/CMakeFiles/opencvtest.dir/rule:
-	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/opencvtest.dir/rule
-.PHONY : locator/CMakeFiles/opencvtest.dir/rule
+locator/CMakeFiles/doesFrameExistInDataBase.dir/rule:
+	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/doesFrameExistInDataBase.dir/rule
+.PHONY : locator/CMakeFiles/doesFrameExistInDataBase.dir/rule
 
 # Convenience name for target.
-opencvtest: locator/CMakeFiles/opencvtest.dir/rule
-.PHONY : opencvtest
+doesFrameExistInDataBase: locator/CMakeFiles/doesFrameExistInDataBase.dir/rule
+.PHONY : doesFrameExistInDataBase
 
 # fast build rule for target.
-opencvtest/fast:
-	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/build
-.PHONY : opencvtest/fast
+doesFrameExistInDataBase/fast:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/build
+.PHONY : doesFrameExistInDataBase/fast
 
 # Convenience name for target.
 locator/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -327,29 +327,29 @@ src/captureFrame.cpp.s:
 	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/captureFrame.dir/build.make locator/CMakeFiles/captureFrame.dir/src/captureFrame.cpp.s
 .PHONY : src/captureFrame.cpp.s
 
-src/opencvtest.o: src/opencvtest.cpp.o
-.PHONY : src/opencvtest.o
+src/doesFrameExistInDataBase.o: src/doesFrameExistInDataBase.cpp.o
+.PHONY : src/doesFrameExistInDataBase.o
 
 # target to build an object file
-src/opencvtest.cpp.o:
-	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/src/opencvtest.cpp.o
-.PHONY : src/opencvtest.cpp.o
+src/doesFrameExistInDataBase.cpp.o:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/src/doesFrameExistInDataBase.cpp.o
+.PHONY : src/doesFrameExistInDataBase.cpp.o
 
-src/opencvtest.i: src/opencvtest.cpp.i
-.PHONY : src/opencvtest.i
+src/doesFrameExistInDataBase.i: src/doesFrameExistInDataBase.cpp.i
+.PHONY : src/doesFrameExistInDataBase.i
 
 # target to preprocess a source file
-src/opencvtest.cpp.i:
-	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/src/opencvtest.cpp.i
-.PHONY : src/opencvtest.cpp.i
+src/doesFrameExistInDataBase.cpp.i:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/src/doesFrameExistInDataBase.cpp.i
+.PHONY : src/doesFrameExistInDataBase.cpp.i
 
-src/opencvtest.s: src/opencvtest.cpp.s
-.PHONY : src/opencvtest.s
+src/doesFrameExistInDataBase.s: src/doesFrameExistInDataBase.cpp.s
+.PHONY : src/doesFrameExistInDataBase.s
 
 # target to generate assembly for a file
-src/opencvtest.cpp.s:
-	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/opencvtest.dir/build.make locator/CMakeFiles/opencvtest.dir/src/opencvtest.cpp.s
-.PHONY : src/opencvtest.cpp.s
+src/doesFrameExistInDataBase.cpp.s:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/src/doesFrameExistInDataBase.cpp.s
+.PHONY : src/doesFrameExistInDataBase.cpp.s
 
 # Help Target
 help:
@@ -358,12 +358,12 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... captureFrame"
+	@echo "... doesFrameExistInDataBase"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... opencvtest"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -378,9 +378,9 @@ help:
 	@echo "... src/captureFrame.o"
 	@echo "... src/captureFrame.i"
 	@echo "... src/captureFrame.s"
-	@echo "... src/opencvtest.o"
-	@echo "... src/opencvtest.i"
-	@echo "... src/opencvtest.s"
+	@echo "... src/doesFrameExistInDataBase.o"
+	@echo "... src/doesFrameExistInDataBase.i"
+	@echo "... src/doesFrameExistInDataBase.s"
 .PHONY : help
 
 

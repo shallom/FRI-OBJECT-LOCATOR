@@ -31,7 +31,7 @@ using namespace cv;
 
 class error_Reading_Image{ };
 
-int bruteForceDescriptorMatch(Mat image_1_descriptor, Mat image_2_descriptor){
+int bruteForceDescriptorMatch(Mat &image_1_descriptor, Mat &image_2_descriptor){
 	BFMatcher matcher;
 	vector< DMatch > matches;
 	matcher.match( image_1_descriptor, image_2_descriptor, matches );
@@ -47,7 +47,7 @@ int bruteForceDescriptorMatch(Mat image_1_descriptor, Mat image_2_descriptor){
 	}
 
 	vector< DMatch > good_matches;
-	//say a good match is a ,atch whose diesnce is less than there times the lower bound
+	//say a good match is a match whose distance is less than there times the lower bound
 	for( int i = 0; i < image_1_descriptor.rows; i++ ){
 		if( matches[i].distance <= 3*min_dist)
 			good_matches.push_back( matches[i]);
@@ -56,21 +56,19 @@ int bruteForceDescriptorMatch(Mat image_1_descriptor, Mat image_2_descriptor){
 	return good_matches.size();
 }
 
-int compareTwoImages(Mat image_1, Mat image_2){
-        if(!image_1.data || !image_2.data)
+int compareImages(Mat &image){
+        if(!image.data )
                 throw error_Reading_Image();
 	OrbFeatureDetector detector;
 	OrbDescriptorExtractor extractor;
-	Mat image_1_descriptor, image_2_descriptor;
-	vector<KeyPoint> image_1_keypoints, image_2_keypoints;
+	Mat image_descriptor, image_2_descriptor;
+	vector<KeyPoint> image_keypoints;
 	//Detect keypoints
-	detector.detect( image_1, image_1_keypoints );
-	detector.detect( image_2, image_2_keypoints );
+	detector.detect( image, image_keypoints );
 	//Calculate feature vectors
-	extractor.compute( image_1, image_1_keypoints, image_1_descriptor );
-	extractor.compute( image_2, image_2_keypoints, image_2_descriptor );
+	extractor.compute( image, image_keypoints, image_descriptor );
 
-	return bruteForceDescriptorMatch(image_1_descriptor, image_2_descriptor);
+	return bruteForceDescriptorMatch(image_descriptor, image_2_descriptor);
 	
 }
 

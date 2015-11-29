@@ -48,7 +48,7 @@ int main(int argc, char** argv)
         cap >> frame; // get a new frame from camera
 	if(frame.empty())//if the a fram wasn't recived throw an exception
 		throw readFrameError();
-	else if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("yes")!=0){
+	else if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("yes")==0){
 		//need to include a boolean as to whether file readyfornewpic is yes in the above else
 		imwrite("../object_locator/src/locator/src/frame.ppm", frame); //save the frame
 		components=numberOfComponents("../object_locator/src/locator/src/frame.ppm");

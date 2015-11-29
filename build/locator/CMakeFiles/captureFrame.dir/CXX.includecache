@@ -41,6 +41,8 @@ fstream
 -
 string
 -
+opencv2/opencv.hpp
+/home/shallom/object_locator/src/locator/src/opencv2/opencv.hpp
 
 /home/shallom/object_locator/src/locator/src/filter.h
 vector

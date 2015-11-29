@@ -25,15 +25,20 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <cstdlib>
 #include <string>
 #include "fileInputOutput.h"
-
+#include "compareImage.h"
+#include <sstream>
 
 using namespace cv;
 
 
 int main(int argc, char **argv)
 {
-
 	//std::cout << writeToFile("NOOOOO") << '\n';
+int i=2;
+ostringstream oss;
+string text="hello";
+oss << i;
+text += oss.str();
      Mat img_1, img_2, grey1, grey2;
 	img_1 = imread("../object_locator/src/locator/src/test1.JPG", 1 );
 img_2 = imread("../object_locator/src/locator/src/test2.JPG", 1 );
@@ -56,6 +61,16 @@ Mat descriptors_1, descriptors_2;
 extractor.compute( img_1, keypoints_1, descriptors_1 );
 extractor.compute( img_2, keypoints_2, descriptors_2 );
 
+float data[2][5] = {{1,2,3,4,5},{7,8,9,10,11}}; 
+Mat A=Mat(2, 5, CV_32FC1, &data);
+Mat B=Mat(2, 5, CV_32FC1, &data);
+
+vector<Mat> C;
+C.push_back(A);
+C.push_back(B);
+readFromFile("../object_locator/src/locator/src/readyForNewPic.txt");
+
+int numberOfPics=sscanf(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").c_str(), "%d", &numberOfPics);	
 //-- Step 3: Matching descriptor vectors using BF matcher
 BFMatcher matcher;
 std::vector< DMatch > matches;

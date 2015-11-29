@@ -21,8 +21,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "opencv2/opencv.hpp"
 
 using namespace std;
+using namespace cv;
 
 class file_error { };
 
@@ -38,8 +40,7 @@ string readFromFile(const char* outputFileLoc){
 }
 
 
-
-bool writeToFile(string input, const char* inputFileLoc){
+bool writeToFile(const char* input, const char* inputFileLoc){
 	ofstream inputFile (inputFileLoc);
 	if(inputFile.is_open()){
 		inputFile << input;
@@ -49,5 +50,6 @@ bool writeToFile(string input, const char* inputFileLoc){
 		throw file_error();
 	return false;
 }
+
 
 #endif
