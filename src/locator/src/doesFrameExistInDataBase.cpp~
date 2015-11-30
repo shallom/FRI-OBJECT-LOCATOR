@@ -22,35 +22,64 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <string>
 #include <sstream>
 #include "fileInputOutput.h"
+#include "compareImage.h"
 
 int main(int argc, char **argv)
 {
 	Mat image, currImage;
 	ostringstream oss;
-	string loc="hello", ext=".jpg", result="";
+	string loc="../object_locator/pic/", ext=".jpg", result="";
+	bool simalarImage=true;
 	while(true){
+		int numberOfPics;
 		if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("no")==0){
-			int numberOfPics=sscanf(readFromFile("../object_locator/pic/numberOfPics.txt").c_str(), "%d", &numberOfPics);
+			numberOfPics=atoi(readFromFile("../object_locator/pic/numberOfPics.txt").c_str());
 			image=imread("../object_locator/src/locator/src/frameToSend.jpg", 1 );
 			for(int pic=0; pic<numberOfPics; pic++){
 				oss << pic;
 				result= loc + oss.str() + ext;
+				oss.str("");
+				oss.clear();
 				currImage=imread(result,1);
-				if(compareTwoImages(image, currImage)>25){//if greater than 25 the images are somwhat alike so look for new pic
+				cout<<"in here loc: ";
+				cout<<result<<"in here loc \n";
+				cout<<compareTwoImages(image, currImage)<<"\n";
+				if(compareTwoImages(image, currImage)>15){//if greater than 25 the images are somwhat alike so look for new pic
 					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
+					cout<<"similar found \n";
+					simalarImage=true;
 					break;
 				}
+				simalarImage=false;
 			}
-			writeToFile("yes","../object_locator/src/locator/src/doneComparing.txt");
-			//cloudsight should read when doneComparing says yes
-			//it sets recieved info to no,
-			//while loop here waits till recieved info say yes;
+			if(!simalarImage){
+				writeToFile("yes","../object_locator/src/locator/src/doneComparing.txt");
+				//cloudsight should read when doneComparing says yes
+				//it sets recieved info to no,
+				//while loop here waits till recieved info say yes;
+				while(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("no")==0){
+				}
+				if(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("yes")==0){
+					writeToFile("no","../object_locator/src/locator/src/doneComparing.txt");
+					oss << numberOfPics++;
+					result= loc + oss.str() + ext;
+					oss.str("");
+					oss.clear();
+					imwrite(result, image);
+					stringstream temp_str;
+					temp_str<<(numberOfPics);
+					string str = temp_str.str();
+					writeToFile(str.c_str(),"../object_locator/pic/numberOfPics.txt");
+					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
+					writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
+				}
 			//after recieved info it sets received info to yes
 			//cloudsight writes info to file
 			//after the while loop fails we write the pic in frameToSendToCloudsight to the pic direc
 			//and ready for new pic to yes
 			//and done comparing to no.
 			//and ready received info to no;
+			}
 		}
 	}
 }
