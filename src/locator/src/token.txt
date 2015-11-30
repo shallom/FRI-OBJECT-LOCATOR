@@ -3,18 +3,18 @@ HTTP/1.1 100 Continue
 HTTP/1.1 200 OK
 Cache-Control: max-age=0, private, must-revalidate
 Content-Type: application/json; charset=utf-8
-Date: Mon, 30 Nov 2015 00:54:35 GMT
-ETag: "c0fc60107df10742936be1a85d77ff0e"
+Date: Mon, 30 Nov 2015 01:10:34 GMT
+ETag: "1b9d798eadbdcf2e1457bf2f6e5ba1e8"
 Server: nginx/1.4.6 (Ubuntu)
-Set-Cookie: _imagetag_session=eHExWEs3TWl6Tkg2aXdXcjkzYmxXV1RIVityd2hzY3FYS1g2S0RXSDVDU3ZCcE45T2xpeDd6SlpldHoxNGprcXhoZzY4RURJVkJjWkpYTE12YU92cnc9PS0tV0o5ZlN6QytqMmtGMnVReVlKOVZ4QT09--367a43ce0ecba6823f8f8887f5053e396af01949; path=/; HttpOnly
-X-CloudSight-CreditBalance: 946
+Set-Cookie: _imagetag_session=bmhQbHBsNlhCNnBXa2NzeUZmbGNaZ1pSbXJzVlBXckhjOTZ2MHdkY0phaGdVL2luUUFEeUxVYWJCdDNYbE1tRDNXREVnN3p1L1NnKzJNajlNbkJSY2c9PS0tL1YxajUzWE1CaUEySDRkUDBQeHI4UT09--a8d766e5b8237327feb6fc7d6d64f1f3b01d2488; path=/; HttpOnly
+X-CloudSight-CreditBalance: 944
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 476f9c6d-8e02-4512-ac37-97763722edd2
-X-Runtime: 1.149654
+X-Request-Id: a25f66e3-a034-429f-ac3e-2ce6cceffc0f
+X-Runtime: 0.958821
 X-UA-Compatible: chrome=1
 X-XSS-Protection: 1; mode=block
 Content-Length: 130
 Connection: keep-alive
 
-{"token":"nyoxt1ALlx0jSZTeI5e0KA","url":"//d1spq65clhrg1f.cloudfront.net/uploads/image_request/image/34/34102/34102082/test1.JPG"}
+{"token":"wJ89HtDG3tkR6AQg-mDbog","url":"//d1spq65clhrg1f.cloudfront.net/uploads/image_request/image/34/34102/34102440/test1.JPG"}

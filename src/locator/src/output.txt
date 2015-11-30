@@ -1,17 +1,17 @@
 HTTP/1.1 200 OK
 Cache-Control: max-age=0, private, must-revalidate
 Content-Type: application/json; charset=utf-8
-Date: Mon, 30 Nov 2015 00:54:35 GMT
-ETag: "1498e772643a259d8f057c64af3a6249"
+Date: Mon, 30 Nov 2015 01:10:34 GMT
+ETag: "911b902b3cab7b40d24c7f76b4179ff0"
 Server: nginx/1.4.6 (Ubuntu)
-Set-Cookie: _imagetag_session=VkZ2RldESE5LRDEyTHZ3clFIaDIySUZMZzcvWUZ5T0lOQ05vNWpEbEZzWjNteUJCWjJTOEFOT0NBdjVXb0tNM0tGUm41cnE4Ri9kRVJjT3NDNnJjOWc9PS0tVE1nWU4zNGFzTXg5eGxadlBRYnhxQT09--4ce9f2988cdc3bb3c16f9ec91b3bdf25a513095b; path=/; HttpOnly
+Set-Cookie: _imagetag_session=blYwajZJbEpOK0R6N2srbE1RQ3FCSEN0MTJmMjlab3hvQURESzNYSlFaNktYK1V5cFRtcVFnMVF5U0dOTUJzZUdjQ1FyelRuN1Z3NmtvNmdoV0pxbUE9PS0tVG9DSk9NT3B6UHdyVVpHeEhVRlE2dz09--a463ad8c981d480ab9f553fa56f43208b16fe435; path=/; HttpOnly
 X-Content-Type-Options: nosniff
 X-Frame-Options: SAMEORIGIN
-X-Request-Id: 812eea0a-0e37-438d-989c-e1ad12d4737f
-X-Runtime: 0.042235
+X-Request-Id: ee29bdae-ea35-4600-b65b-4d111ff503fa
+X-Runtime: 0.028694
 X-UA-Compatible: chrome=1
 X-XSS-Protection: 1; mode=block
-Content-Length: 83
+Content-Length: 26
 Connection: keep-alive
 
-{"status":"completed","name":"red and blue plastic bottles near white ceramic mug"}
+{"status":"not completed"}
