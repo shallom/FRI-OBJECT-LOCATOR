@@ -66,7 +66,7 @@ int main(int argc, char** argv)
 			//objectDescription does its thing: gets info from cloudsight,
 			//saves the features description and room location to a database
 			//after we wait 30 seconds we write yes to readyForNewPic
-}
+		}
 	}
         imshow("frames", frame);
         if(waitKey(30) >= 0) break;
