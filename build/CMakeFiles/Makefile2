@@ -261,7 +261,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  4
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
@@ -292,7 +292,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  5
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
@@ -321,11 +321,13 @@ clean: gtest/CMakeFiles/gtest_main.dir/clean
 
 # Convenience name for "all" pass in the directory.
 locator/all: locator/CMakeFiles/captureFrame.dir/all
+locator/all: locator/CMakeFiles/cloudsightInterFace.dir/all
 locator/all: locator/CMakeFiles/doesFrameExistInDataBase.dir/all
 .PHONY : locator/all
 
 # Convenience name for "clean" pass in the directory.
 locator/clean: locator/CMakeFiles/captureFrame.dir/clean
+locator/clean: locator/CMakeFiles/cloudsightInterFace.dir/clean
 locator/clean: locator/CMakeFiles/doesFrameExistInDataBase.dir/clean
 locator/clean: locator/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 locator/clean: locator/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
@@ -378,13 +380,48 @@ clean: locator/CMakeFiles/captureFrame.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Target rules for target locator/CMakeFiles/cloudsightInterFace.dir
+
+# All Build rule for target.
+locator/CMakeFiles/cloudsightInterFace.dir/all:
+	$(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/depend
+	$(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  2
+	@echo "Built target cloudsightInterFace"
+.PHONY : locator/CMakeFiles/cloudsightInterFace.dir/all
+
+# Include target in all.
+all: locator/CMakeFiles/cloudsightInterFace.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+locator/CMakeFiles/cloudsightInterFace.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shallom/object_locator/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/cloudsightInterFace.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/shallom/object_locator/build/CMakeFiles 0
+.PHONY : locator/CMakeFiles/cloudsightInterFace.dir/rule
+
+# Convenience name for target.
+cloudsightInterFace: locator/CMakeFiles/cloudsightInterFace.dir/rule
+.PHONY : cloudsightInterFace
+
+# clean rule for target.
+locator/CMakeFiles/cloudsightInterFace.dir/clean:
+	$(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/clean
+.PHONY : locator/CMakeFiles/cloudsightInterFace.dir/clean
+
+# clean rule for target.
+clean: locator/CMakeFiles/cloudsightInterFace.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target locator/CMakeFiles/doesFrameExistInDataBase.dir
 
 # All Build rule for target.
 locator/CMakeFiles/doesFrameExistInDataBase.dir/all:
 	$(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/depend
 	$(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/shallom/object_locator/build/CMakeFiles  3
 	@echo "Built target doesFrameExistInDataBase"
 .PHONY : locator/CMakeFiles/doesFrameExistInDataBase.dir/all
 

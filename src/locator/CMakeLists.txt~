@@ -15,8 +15,8 @@ find_package(OpenCV REQUIRED)
 add_executable(captureFrame src/captureFrame.cpp)
 target_link_libraries(captureFrame ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
-add_executable(opencvtest src/opencvtest.cpp)
-target_link_libraries(opencvtest ${catkin_LIBRARIES} ${OpenCV_LIBS})
+add_executable(doesFrameExistInDataBase src/doesFrameExistInDataBase.cpp)
+target_link_libraries(doesFrameExistInDataBase ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)

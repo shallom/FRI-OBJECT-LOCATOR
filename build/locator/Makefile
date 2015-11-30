@@ -164,6 +164,20 @@ captureFrame/fast:
 .PHONY : captureFrame/fast
 
 # Convenience name for target.
+locator/CMakeFiles/cloudsightInterFace.dir/rule:
+	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/cloudsightInterFace.dir/rule
+.PHONY : locator/CMakeFiles/cloudsightInterFace.dir/rule
+
+# Convenience name for target.
+cloudsightInterFace: locator/CMakeFiles/cloudsightInterFace.dir/rule
+.PHONY : cloudsightInterFace
+
+# fast build rule for target.
+cloudsightInterFace/fast:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/build
+.PHONY : cloudsightInterFace/fast
+
+# Convenience name for target.
 locator/CMakeFiles/doesFrameExistInDataBase.dir/rule:
 	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/doesFrameExistInDataBase.dir/rule
 .PHONY : locator/CMakeFiles/doesFrameExistInDataBase.dir/rule
@@ -327,6 +341,30 @@ src/captureFrame.cpp.s:
 	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/captureFrame.dir/build.make locator/CMakeFiles/captureFrame.dir/src/captureFrame.cpp.s
 .PHONY : src/captureFrame.cpp.s
 
+src/cloudsightInterFace.o: src/cloudsightInterFace.cpp.o
+.PHONY : src/cloudsightInterFace.o
+
+# target to build an object file
+src/cloudsightInterFace.cpp.o:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/src/cloudsightInterFace.cpp.o
+.PHONY : src/cloudsightInterFace.cpp.o
+
+src/cloudsightInterFace.i: src/cloudsightInterFace.cpp.i
+.PHONY : src/cloudsightInterFace.i
+
+# target to preprocess a source file
+src/cloudsightInterFace.cpp.i:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/src/cloudsightInterFace.cpp.i
+.PHONY : src/cloudsightInterFace.cpp.i
+
+src/cloudsightInterFace.s: src/cloudsightInterFace.cpp.s
+.PHONY : src/cloudsightInterFace.s
+
+# target to generate assembly for a file
+src/cloudsightInterFace.cpp.s:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/src/cloudsightInterFace.cpp.s
+.PHONY : src/cloudsightInterFace.cpp.s
+
 src/doesFrameExistInDataBase.o: src/doesFrameExistInDataBase.cpp.o
 .PHONY : src/doesFrameExistInDataBase.o
 
@@ -358,6 +396,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... captureFrame"
+	@echo "... cloudsightInterFace"
 	@echo "... doesFrameExistInDataBase"
 	@echo "... edit_cache"
 	@echo "... install"
@@ -378,6 +417,9 @@ help:
 	@echo "... src/captureFrame.o"
 	@echo "... src/captureFrame.i"
 	@echo "... src/captureFrame.s"
+	@echo "... src/cloudsightInterFace.o"
+	@echo "... src/cloudsightInterFace.i"
+	@echo "... src/cloudsightInterFace.s"
 	@echo "... src/doesFrameExistInDataBase.o"
 	@echo "... src/doesFrameExistInDataBase.i"
 	@echo "... src/doesFrameExistInDataBase.s"

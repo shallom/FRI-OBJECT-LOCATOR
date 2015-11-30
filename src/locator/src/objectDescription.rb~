@@ -27,4 +27,4 @@ end
 
 cloudSight=CloudSightInterface.new
 cloudSight.setAuth()
-cloudSight.sendPictureAndGetResponse('test1.JPG')
+cloudSight.sendPictureAndGetResponse('wolf.png')

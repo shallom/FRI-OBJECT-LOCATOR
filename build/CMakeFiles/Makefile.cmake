@@ -162,6 +162,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "gtest/CMakeFiles/gtest.dir/DependInfo.cmake"
   "gtest/CMakeFiles/gtest_main.dir/DependInfo.cmake"
   "locator/CMakeFiles/captureFrame.dir/DependInfo.cmake"
+  "locator/CMakeFiles/cloudsightInterFace.dir/DependInfo.cmake"
   "locator/CMakeFiles/doesFrameExistInDataBase.dir/DependInfo.cmake"
   "locator/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake"
   "locator/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake"

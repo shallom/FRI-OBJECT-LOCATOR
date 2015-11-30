@@ -15,6 +15,9 @@ find_package(OpenCV REQUIRED)
 add_executable(captureFrame src/captureFrame.cpp)
 target_link_libraries(captureFrame ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
+add_executable(cloudsightInterFace src/cloudsightInterFace.cpp)
+target_link_libraries(cloudsightInterFace ${catkin_LIBRARIES})
+
 add_executable(doesFrameExistInDataBase src/doesFrameExistInDataBase.cpp)
 target_link_libraries(doesFrameExistInDataBase ${catkin_LIBRARIES} ${OpenCV_LIBS})
 

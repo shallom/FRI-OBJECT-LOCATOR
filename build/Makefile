@@ -267,6 +267,19 @@ captureFrame/fast:
 .PHONY : captureFrame/fast
 
 #=============================================================================
+# Target rules for targets named cloudsightInterFace
+
+# Build rule for target.
+cloudsightInterFace: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cloudsightInterFace
+.PHONY : cloudsightInterFace
+
+# fast build rule for target.
+cloudsightInterFace/fast:
+	$(MAKE) -f locator/CMakeFiles/cloudsightInterFace.dir/build.make locator/CMakeFiles/cloudsightInterFace.dir/build
+.PHONY : cloudsightInterFace/fast
+
+#=============================================================================
 # Target rules for targets named doesFrameExistInDataBase
 
 # Build rule for target.
@@ -418,6 +431,7 @@ help:
 	@echo "... gtest"
 	@echo "... gtest_main"
 	@echo "... captureFrame"
+	@echo "... cloudsightInterFace"
 	@echo "... doesFrameExistInDataBase"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"

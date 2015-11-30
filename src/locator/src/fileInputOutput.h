@@ -51,5 +51,41 @@ bool writeToFile(const char* input, const char* inputFileLoc){
 	return false;
 }
 
+string getToken(){
+	ifstream outputFile ("../object_locator/src/locator/src/token.txt");
+	string line;
+	char lineArr[1024];
+	string token;
+	if(outputFile.is_open()){
+		while(getline(outputFile, line)){
+			string first (line.begin(), line.begin()+1);
+			if(first.compare("{")==0){
+				strncpy(lineArr, line.c_str(), sizeof(lineArr));
+				break;
+			}
+		}
+		int start=0, end=0;
+		bool canTerm=false;
+		while(!canTerm){
+			if(lineArr[end]==':'){
+				end++;
+				start=++end;
+				canTerm=true;
+			}
+			while(canTerm){
+				if(lineArr[end]=='"'){
+					end=end-start;
+					string tok (line, start, end);
+					return tok;
+				}
+				end++;
+			}
+			end++;
+		}
+		return token;
+	}else 
+		throw file_error();
+}
+
 
 #endif

@@ -29,48 +29,11 @@ using namespace cv;
 
 class readFrameError{ };
 
-//Send image to cloudsight servers and write token to token.txt
-
-int sendImg(const char* filename)
-{
-	char s[100];
-	const char *front="./cloud-curl.sh ", *end =" | tee ../object_locator/src/locator/src/token.txt";
-  	strcpy(s,front);
-	strcat(s, filename);
-	strcat(s, end);
-	cout << s << "\n";
-  	system(s);
-}
-
-//Send token to cloudsight for a response and write output to output.txt (streamline this later)
-//Call this over and over again to poll for response
-int getResponse(string token)
-{
-	char s[100];
-	const char *front="./cloud-curl-resp.sh ", *end =" | tee ../object_locator/src/locator/src/output.txt";
-	strcpy(s,front);
-	cout << s << "\n";
-	strcat(s, token.c_str());
-	cout << s << "\n";
-	strcat(s, end);
-	cout << s << "\n";
-	system(s);
-}
-
 int main(int argc, char** argv)
 {
     //inni ros
     ros::init (argc, argv, "captureFrame");
 	ros::NodeHandle nh;
-
-	while(true){
-		sendImg("../object_locator/src/locator/src/test2.JPG");
-		while(readFromFile("../object_locator/src/locator/src/token.txt").compare("")!=0){
-			getResponse(readFromFile("../object_locator/src/locator/src/token.txt"));
-			cout << "token "<< readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
-			cout << readFromFile("../object_locator/src/locator/src/output.txt") << "\n";
-		}
-	}
 
     int components;
 
