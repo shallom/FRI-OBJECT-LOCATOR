@@ -77,15 +77,16 @@ int main(int argc, char** argv){
 	while(true){
 		if(readFromFile("../object_locator/src/locator/src/doneComparing.txt").compare("yes")==0){
 			writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
-			//sendImg("../object_locator/src/locator/src/frameToSend.jpg");
+			sendImg("../object_locator/src/locator/src/frameToSend.jpg");
 			string token=getToken();
 			string status;
 			for(int i=0; i<50; i++){
-				cout<<"working \n";
-				//getResponse(token);	
+				cout<<"Working... \n";
+				getResponse(token);	
 			}
-			//saveResponse();
+			saveResponse();
 			writeToFile("yes","../object_locator/src/locator/src/recievedResult.txt");
+			cout<<"Finished \n";
 		}
 	}
 }

@@ -45,6 +45,7 @@ int getResponse(string token){
 	system(s);
 }
 
+//saave the response to response.txt
 int saveResponse(){
 	ifstream outputFile ("../object_locator/src/locator/src/output.txt");
 	string line;
@@ -75,17 +76,17 @@ int saveResponse(){
 
 int main(int argc, char** argv){
 	while(true){
-		if(readFromFile("../object_locator/src/locator/src/doneComparing.txt").compare("yes")==0){
-			writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
-			//sendImg("../object_locator/src/locator/src/frameToSend.jpg");
-			string token=getToken();
-			string status;
-			for(int i=0; i<50; i++){
-				cout<<"working \n";
-				//getResponse(token);	
+		if(readFromFile("../object_locator/src/locator/src/doneComparing.txt").compare("yes")==0){//if we are done comparing start
+			writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");//say we haven't recieved the result yet
+			sendImg("../object_locator/src/locator/src/frameToSend.jpg");//send the image to cloudiight 
+			string token=getToken();//get the token
+			for(int i=0; i<50; i++){//for loop that just waits for 50 runs to get response
+				cout<<"Working... \n";
+				getResponse(token);	
 			}
-			//saveResponse();
-			writeToFile("yes","../object_locator/src/locator/src/recievedResult.txt");
+			saveResponse();//save the response
+			writeToFile("yes","../object_locator/src/locator/src/recievedResult.txt");//tell everyone we have recieved the file
+			cout<<"Finished \n";
 		}
 	}
 }

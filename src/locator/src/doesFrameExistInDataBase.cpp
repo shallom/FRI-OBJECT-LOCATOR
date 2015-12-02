@@ -29,35 +29,36 @@ int main(int argc, char **argv)
 	Mat image, currImage;
 	ostringstream oss;
 	string loc="../object_locator/pic/", ext=".jpg", result="";
-	bool simalarImage=true;
+	bool similarImage=true;
 	while(true){
 		int numberOfPics;
-		if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("no")==0){
-			numberOfPics=atoi(readFromFile("../object_locator/pic/numberOfPics.txt").c_str());
+		if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("no")==0){//when we arn't looking for a new pic
+			numberOfPics=atoi(readFromFile("../object_locator/pic/numberOfPics.txt").c_str()); //get the number of pictures we have
 			image=imread("../object_locator/src/locator/src/frameToSend.jpg", 1 );
-			for(int pic=0; pic<numberOfPics; pic++){
+			cout<<"Starting comparision \n";
+			for(int pic=0; pic<numberOfPics; pic++){//compare all the pics in the database to the pic we have
 				oss << pic;
 				result= loc + oss.str() + ext;
 				oss.str("");
 				oss.clear();
 				currImage=imread(result,1);
-				cout<<"in here loc: ";
-				cout<<result<<"in here loc \n";
-				cout<<compareTwoImages(image, currImage)<<"\n";
-				if(compareTwoImages(image, currImage)>15){//if greater than 25 the images are somwhat alike so look for new pic
+				cout<<"Comparing... \n";
+				if(compareTwoImages(image, currImage)>15){//if greater than 15 the images are somwhat alike so look for new pic
 					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
-					cout<<"similar found \n";
-					simalarImage=true;
+					cout<<"Similar image found. Image discarded \n";
+					similarImage=true;
 					break;
 				}
-				simalarImage=false;
+				similarImage=false;
 			}
-			if(!simalarImage){
+			if(!similarImage){
+				cout<<"Image is Differnt. Sending to CloudSight \n";
 				writeToFile("yes","../object_locator/src/locator/src/doneComparing.txt");
 				//cloudsight should read when doneComparing says yes
 				//it sets recieved info to no,
 				//while loop here waits till recieved info say yes;
 				while(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("no")==0){
+					cout<<"Waiting For CloudSight \n";
 				}
 				if(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("yes")==0){
 					writeToFile("no","../object_locator/src/locator/src/doneComparing.txt");
@@ -72,6 +73,7 @@ int main(int argc, char **argv)
 					writeToFile(str.c_str(),"../object_locator/pic/numberOfPics.txt");
 					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
 					writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
+					cout<<"CloudSight returned description. Now waiting for new image \n";
 				}
 			//after recieved info it sets received info to yes
 			//cloudsight writes info to file

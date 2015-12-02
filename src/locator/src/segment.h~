@@ -37,7 +37,7 @@ int numberOfComponents(const char* pic){
 
   image<rgb> *seg = segment_image(input, sigma, k, min_size, &components);
 
-	savePPM(seg,"../object_locator/src/locator/src/segmented.ppm");
+	savePPM(seg,"../object_locator/src/locator/src/segmented.jpg");
 
  delete seg;
  return components;

@@ -19,6 +19,8 @@ segment.h
 /home/shallom/object_locator/src/locator/src/segment.h
 fileInputOutput.h
 /home/shallom/object_locator/src/locator/src/fileInputOutput.h
+iostream
+-
 ros/ros.h
 /home/shallom/object_locator/src/locator/src/ros/ros.h
 
