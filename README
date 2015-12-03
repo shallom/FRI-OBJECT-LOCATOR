@@ -9,7 +9,7 @@ The Robot Operating System:
 
 Open Computer Vision(OpenCV): 
 
-	Uses the webcam for see the world. Reads and writes images. Implementaion of Oriented FAST and Rotated BRIEF (ORB) for image comparision.
+	Uses the webcam to see the world. Reads and writes images. Implementaion of Oriented FAST and Rotated BRIEF (ORB) for image comparision.
 
 CloudSight: 
 
@@ -17,7 +17,7 @@ CloudSight:
 
 Segmentaion: 
 
-	Implementation of the segmentation algorithm described in: Efficient Graph-Based Image Segmentation Pedro F. Felzenszwalb and 	        Daniel P. Huttenlocher International Journal of Computer Vision, 59(2) September 2004.
+	Implementation of the segmentation algorithm described in: Efficient Graph-Based Image Segmentation Pedro F. Felzenszwalb and Daniel P. Huttenlocher International Journal of Computer Vision, 59(2) September 2004.
 
 
 
