@@ -45,6 +45,15 @@ int getResponse(string token){
 	system(s);
 }
 
+//use espeak to say cloudsight response out loud
+int speak_response(){
+	char s[200];
+	const char *front="espeak ", *end =" < src/locator/src/response.txt";
+	strcpy(s,front);
+	strcat(s, end);
+	system(s);
+}
+
 //saave the response to response.txt
 int saveResponse(){
 	ifstream outputFile ("../object_locator/src/locator/src/output.txt");
@@ -76,16 +85,26 @@ int saveResponse(){
 
 int main(int argc, char** argv){
 	while(true){
-		if(readFromFile("../object_locator/src/locator/src/doneComparing.txt").compare("yes")==0){//if we are done comparing start
-			writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");//say we haven't recieved the result yet
-			sendImg("../object_locator/src/locator/src/frameToSend.jpg");//send the image to cloudiight 
+
+		if(readFromFile("../object_locator/src/locator/src/doneComparing.txt").compare("yes")==0){
+                 //if we are done comparing start
+
+			writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
+                        //say we haven't recieved the result yet
+
+			sendImg("../object_locator/src/locator/src/frameToSend.jpg");
+                        //send the image to cloudsight 
+
 			string token=getToken();//get the token
 			for(int i=0; i<50; i++){//for loop that just waits for 50 runs to get response
 				cout<<"Working... \n";
 				getResponse(token);	
 			}
 			saveResponse();//save the response
-			writeToFile("yes","../object_locator/src/locator/src/recievedResult.txt");//tell everyone we have recieved the file
+                        //tell everyone we have recieved the file
+			writeToFile("yes","../object_locator/src/locator/src/recievedResult.txt");
+
+                        speak_response();
 			cout<<"Finished \n";
 		}
 	}
