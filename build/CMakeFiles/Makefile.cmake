@@ -164,6 +164,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "locator/CMakeFiles/captureFrame.dir/DependInfo.cmake"
   "locator/CMakeFiles/cloudsightInterFace.dir/DependInfo.cmake"
   "locator/CMakeFiles/doesFrameExistInDataBase.dir/DependInfo.cmake"
+  "locator/CMakeFiles/pubMoveCmds.dir/DependInfo.cmake"
   "locator/CMakeFiles/roscpp_generate_messages_cpp.dir/DependInfo.cmake"
   "locator/CMakeFiles/roscpp_generate_messages_lisp.dir/DependInfo.cmake"
   "locator/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake"
@@ -173,4 +174,5 @@ SET(CMAKE_DEPEND_INFO_FILES
   "locator/CMakeFiles/std_msgs_generate_messages_cpp.dir/DependInfo.cmake"
   "locator/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake"
   "locator/CMakeFiles/std_msgs_generate_messages_py.dir/DependInfo.cmake"
+  "locator/CMakeFiles/subMoveCmds.dir/DependInfo.cmake"
   )

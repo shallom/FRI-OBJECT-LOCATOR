@@ -192,6 +192,20 @@ doesFrameExistInDataBase/fast:
 .PHONY : doesFrameExistInDataBase/fast
 
 # Convenience name for target.
+locator/CMakeFiles/pubMoveCmds.dir/rule:
+	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/pubMoveCmds.dir/rule
+.PHONY : locator/CMakeFiles/pubMoveCmds.dir/rule
+
+# Convenience name for target.
+pubMoveCmds: locator/CMakeFiles/pubMoveCmds.dir/rule
+.PHONY : pubMoveCmds
+
+# fast build rule for target.
+pubMoveCmds/fast:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/pubMoveCmds.dir/build.make locator/CMakeFiles/pubMoveCmds.dir/build
+.PHONY : pubMoveCmds/fast
+
+# Convenience name for target.
 locator/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
 	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 .PHONY : locator/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
@@ -317,6 +331,20 @@ std_msgs_generate_messages_py/fast:
 	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/std_msgs_generate_messages_py.dir/build.make locator/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+locator/CMakeFiles/subMoveCmds.dir/rule:
+	cd /home/shallom/object_locator/build && $(MAKE) -f CMakeFiles/Makefile2 locator/CMakeFiles/subMoveCmds.dir/rule
+.PHONY : locator/CMakeFiles/subMoveCmds.dir/rule
+
+# Convenience name for target.
+subMoveCmds: locator/CMakeFiles/subMoveCmds.dir/rule
+.PHONY : subMoveCmds
+
+# fast build rule for target.
+subMoveCmds/fast:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/subMoveCmds.dir/build.make locator/CMakeFiles/subMoveCmds.dir/build
+.PHONY : subMoveCmds/fast
+
 src/captureFrame.o: src/captureFrame.cpp.o
 .PHONY : src/captureFrame.o
 
@@ -389,6 +417,54 @@ src/doesFrameExistInDataBase.cpp.s:
 	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/doesFrameExistInDataBase.dir/build.make locator/CMakeFiles/doesFrameExistInDataBase.dir/src/doesFrameExistInDataBase.cpp.s
 .PHONY : src/doesFrameExistInDataBase.cpp.s
 
+src/pubMoveCmds.o: src/pubMoveCmds.cpp.o
+.PHONY : src/pubMoveCmds.o
+
+# target to build an object file
+src/pubMoveCmds.cpp.o:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/pubMoveCmds.dir/build.make locator/CMakeFiles/pubMoveCmds.dir/src/pubMoveCmds.cpp.o
+.PHONY : src/pubMoveCmds.cpp.o
+
+src/pubMoveCmds.i: src/pubMoveCmds.cpp.i
+.PHONY : src/pubMoveCmds.i
+
+# target to preprocess a source file
+src/pubMoveCmds.cpp.i:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/pubMoveCmds.dir/build.make locator/CMakeFiles/pubMoveCmds.dir/src/pubMoveCmds.cpp.i
+.PHONY : src/pubMoveCmds.cpp.i
+
+src/pubMoveCmds.s: src/pubMoveCmds.cpp.s
+.PHONY : src/pubMoveCmds.s
+
+# target to generate assembly for a file
+src/pubMoveCmds.cpp.s:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/pubMoveCmds.dir/build.make locator/CMakeFiles/pubMoveCmds.dir/src/pubMoveCmds.cpp.s
+.PHONY : src/pubMoveCmds.cpp.s
+
+src/subMoveCmds.o: src/subMoveCmds.cpp.o
+.PHONY : src/subMoveCmds.o
+
+# target to build an object file
+src/subMoveCmds.cpp.o:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/subMoveCmds.dir/build.make locator/CMakeFiles/subMoveCmds.dir/src/subMoveCmds.cpp.o
+.PHONY : src/subMoveCmds.cpp.o
+
+src/subMoveCmds.i: src/subMoveCmds.cpp.i
+.PHONY : src/subMoveCmds.i
+
+# target to preprocess a source file
+src/subMoveCmds.cpp.i:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/subMoveCmds.dir/build.make locator/CMakeFiles/subMoveCmds.dir/src/subMoveCmds.cpp.i
+.PHONY : src/subMoveCmds.cpp.i
+
+src/subMoveCmds.s: src/subMoveCmds.cpp.s
+.PHONY : src/subMoveCmds.s
+
+# target to generate assembly for a file
+src/subMoveCmds.cpp.s:
+	cd /home/shallom/object_locator/build && $(MAKE) -f locator/CMakeFiles/subMoveCmds.dir/build.make locator/CMakeFiles/subMoveCmds.dir/src/subMoveCmds.cpp.s
+.PHONY : src/subMoveCmds.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -403,6 +479,7 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... pubMoveCmds"
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
@@ -413,6 +490,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... subMoveCmds"
 	@echo "... test"
 	@echo "... src/captureFrame.o"
 	@echo "... src/captureFrame.i"
@@ -423,6 +501,12 @@ help:
 	@echo "... src/doesFrameExistInDataBase.o"
 	@echo "... src/doesFrameExistInDataBase.i"
 	@echo "... src/doesFrameExistInDataBase.s"
+	@echo "... src/pubMoveCmds.o"
+	@echo "... src/pubMoveCmds.i"
+	@echo "... src/pubMoveCmds.s"
+	@echo "... src/subMoveCmds.o"
+	@echo "... src/subMoveCmds.i"
+	@echo "... src/subMoveCmds.s"
 .PHONY : help
 
 

@@ -18,6 +18,12 @@ target_link_libraries(captureFrame ${catkin_LIBRARIES} ${OpenCV_LIBS})
 add_executable(cloudsightInterFace src/cloudsightInterFace.cpp)
 target_link_libraries(cloudsightInterFace ${catkin_LIBRARIES})
 
+add_executable(pubMoveCmds src/pubMoveCmds.cpp)
+target_link_libraries(pubMoveCmds ${catkin_LIBRARIES})
+
+add_executable(subMoveCmds src/subMoveCmds.cpp)
+target_link_libraries(subMoveCmds ${catkin_LIBRARIES})
+
 add_executable(doesFrameExistInDataBase src/doesFrameExistInDataBase.cpp)
 target_link_libraries(doesFrameExistInDataBase ${catkin_LIBRARIES} ${OpenCV_LIBS})
 

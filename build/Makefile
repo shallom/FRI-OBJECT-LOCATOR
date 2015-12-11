@@ -293,6 +293,19 @@ doesFrameExistInDataBase/fast:
 .PHONY : doesFrameExistInDataBase/fast
 
 #=============================================================================
+# Target rules for targets named pubMoveCmds
+
+# Build rule for target.
+pubMoveCmds: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 pubMoveCmds
+.PHONY : pubMoveCmds
+
+# fast build rule for target.
+pubMoveCmds/fast:
+	$(MAKE) -f locator/CMakeFiles/pubMoveCmds.dir/build.make locator/CMakeFiles/pubMoveCmds.dir/build
+.PHONY : pubMoveCmds/fast
+
+#=============================================================================
 # Target rules for targets named roscpp_generate_messages_cpp
 
 # Build rule for target.
@@ -409,6 +422,19 @@ std_msgs_generate_messages_py/fast:
 	$(MAKE) -f locator/CMakeFiles/std_msgs_generate_messages_py.dir/build.make locator/CMakeFiles/std_msgs_generate_messages_py.dir/build
 .PHONY : std_msgs_generate_messages_py/fast
 
+#=============================================================================
+# Target rules for targets named subMoveCmds
+
+# Build rule for target.
+subMoveCmds: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 subMoveCmds
+.PHONY : subMoveCmds
+
+# fast build rule for target.
+subMoveCmds/fast:
+	$(MAKE) -f locator/CMakeFiles/subMoveCmds.dir/build.make locator/CMakeFiles/subMoveCmds.dir/build
+.PHONY : subMoveCmds/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -433,6 +459,7 @@ help:
 	@echo "... captureFrame"
 	@echo "... cloudsightInterFace"
 	@echo "... doesFrameExistInDataBase"
+	@echo "... pubMoveCmds"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... roscpp_generate_messages_py"
@@ -442,6 +469,7 @@ help:
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
+	@echo "... subMoveCmds"
 .PHONY : help
 
 
