@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "locator")
-set(locator_MAINTAINER "shallom <shallom@todo.todo>")
-set(locator_DEPRECATED "")
-set(locator_VERSION "0.0.0")
-set(locator_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
-set(locator_RUN_DEPENDS "roscpp" "rospy" "std_msgs")
-set(locator_BUILDTOOL_DEPENDS "catkin")

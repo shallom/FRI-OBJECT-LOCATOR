@@ -1,2 +1,0 @@
-locator
--DCATKIN_DEVEL_PREFIX=/home/shallom/object_locator/devel -DCMAKE_INSTALL_PREFIX=/home/shallom/object_locator/install -G Unix Makefiles
