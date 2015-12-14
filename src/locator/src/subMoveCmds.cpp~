@@ -60,16 +60,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 		publisher.publish(direction);
 	}
 
-	int main (int argc, char** argv){
-		
-		// Initialize ROS
-    		ros::init (argc, argv, "reciever");
-		ros::NodeHandle nh;
-
-	
-		//refresh rate
-		double ros_rate = 3.0;
-		ros::Rate r(ros_rate);
+	int coonectToHost(){
 		
 		int sock, bytes_recieved, turns;  
         	char send_data[1024],recv_data[1024];
@@ -92,6 +83,22 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
             		perror("Connect");
             		exit(1);
         	}
+		
+		return 0;
+	}
+
+	int main (int argc, char** argv){
+		
+		// Initialize ROS
+    		ros::init (argc, argv, "reciever");
+		ros::NodeHandle nh;
+
+	
+		//refresh rate
+		double ros_rate = 3.0;
+		ros::Rate r(ros_rate);
+		
+		coonectToHost();
 
 		while (ros::ok()){
 		

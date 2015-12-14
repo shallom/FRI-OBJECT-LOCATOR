@@ -32,11 +32,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 
 int main (int argc, char** argv){
 
-	int sock, connected, bytes_recieved, one=1;  
+int sock, connected, bytes_recieved, one=1;  
         char send_data [1024] , recv_data[1024];       
 
         struct sockaddr_in server_addr,client_addr;    
-       	socklen_t sin_size;
+       socklen_t sin_size;
         
         if ((sock = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
             perror("Socket");
@@ -53,7 +53,8 @@ int main (int argc, char** argv){
         server_addr.sin_addr.s_addr = INADDR_ANY;
         bzero(&(server_addr.sin_zero),8); 
 
-        if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr))== -1) {
+        if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr))
+                                                                       == -1) {
             perror("Unnable to bind");
             exit(1);
         }
@@ -63,24 +64,26 @@ int main (int argc, char** argv){
             exit(1);
         }
 		
-	printf("\nTCPServer Waiting for client on port");
+	printf("\nTCPServer Waiting for client on port 5000");
         fflush(stdout);
 
-	sin_size = sizeof(struct sockaddr_in);
+sin_size = sizeof(struct sockaddr_in);
 
-       	connected = accept(sock, (struct sockaddr *)&client_addr,&sin_size);
+            connected = accept(sock, (struct sockaddr *)&client_addr,&sin_size);
 
-      	printf("\n Recieved connection from (%s , %d)", inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
+            printf("\n I got a connection from (%s , %d)",
+                   inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
 
 	while(true){
-
-      		fgets(send_data, 255, stdin);//get the data from terminal
+		printf("\n SEND (q or Q to quit) : ");
+              	fgets(send_data, 255, stdin);//get the data from terminal
 		send(connected, send_data,strlen(send_data), 0);//send data
 		bytes_recieved = recv(connected,recv_data,1024,0);
-		recv_data[bytes_recieved] = '\0';
 
-		printf("\n RECIEVED DATA = %s " , recv_data);
-		fflush(stdout);
+              recv_data[bytes_recieved] = '\0';
+
+              printf("\n RECIEVED DATA = %s " , recv_data);
+              fflush(stdout);
 	}
 
 }
