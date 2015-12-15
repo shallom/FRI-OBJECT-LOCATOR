@@ -103,7 +103,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 			if(enterConnection){
           			bytes_recieved=recv(sock,recv_data,1024,0);
           			recv_data[bytes_recieved] = '\0';
-				printf("\nRecieved data = %s " , recv_data);
+				printf("\nReceived data = %s " , recv_data);
 				enterConnection=false;
 			}
 		

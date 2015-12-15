@@ -16,6 +16,30 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 */
 
+//Logic Overview
+
+/*	if(readyForNewPic==yes) 
+		save the frame to frameToSend;
+		readyForNewPic==no;
+		
+		//Logic For Comparison 
+			
+			//using the image comparison algorithm check to see if the picture in frameToSend has been sent before
+			if(frame is in database)
+				readyForNewPic==yes;
+			else
+				readyForNewPic==no;
+				send frame to be sent to cloudsight
+			
+				//Logic For cloudsight
+				
+					if(done comparing image)
+						send image to cloudsight;
+						get response and save picture;
+						set readyForNewPic to yes;
+	else 
+		don't do any of the things described below;
+*/
 
 #include "opencv2/opencv.hpp"
 #include <cstdio>
@@ -30,53 +54,57 @@ using namespace cv;
 
 class readFrameError{ };
 
-int main(int argc, char** argv)
-{
-    //inni ros
-    ros::init (argc, argv, "captureFrame");
+int main(int argc, char** argv){
+
+    //init ros
+    ros::init(argc, argv, "captureFrame");
 	ros::NodeHandle nh;
 
     int components;
 
-    VideoCapture cap(0); // open the default camera
-    if(!cap.isOpened())  // check if we succeeded
-        return -1;
+    VideoCapture cap(0); // open the default camera, change the number for camera different from default
+    if(!cap.isOpened())  // check if camera is opened
 
-    namedWindow("frames",1); //opens up window to view webcam. not quit important, but if not included will need to create a  function that ends when a key is pressed
-     Mat frame, segmented;
-    while (true)
-    {
-	cout<<"Waiting for new Image \n";
-        cap >> frame; // get a new frame from camera
-	if(frame.empty())//if the a frame wasn't recived throw an exception
-		throw readFrameError();
-	else if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("yes")==0){
-		cout<<"Found new Image \n";
-		imwrite("../object_locator/src/locator/src/frame.ppm", frame); //save the frame
-		components=numberOfComponents("../object_locator/src/locator/src/frame.ppm");
-		if(components<40&&components>4){
-			cout<<"Image has: "<<components<<". it is good and is sent to be compared \n";
-			//if first line of readyForNewPic says yes we can save the frame to frameToSend
-			//else we don't do any of the things described below.
-			imwrite("../object_locator/src/locator/src/frameToSend.jpg", frame);
-			//if true we then make readyForNewPic no;
-			writeToFile("no","../object_locator/src/locator/src/readyForNewPic.txt");
-			//using the image comparison algo we check to see if the picture in frameToSend has been sent before
-			//and exists in the pics database
-			//if true readyForNewPic still is yes and we skip the below
-			//else we set readyForNewPic to no
-			//if readyForNewPic says yes 
-			//objectDescription does its thing: gets info from cloudsight,
-			//saves the features description and room location to a database
-			//we write yes to readyForNewPic
-		}else
-			cout<<"Image has: "<<components<<". it is not good and is discarded \n";
-	}
-        imshow("frames", frame);
-        if(waitKey(30) >= 0) break;
-	if(ros::ok()) ros::spinOnce();
-    }
+    namedWindow("frames",1); //opens up window to view web cam.
+    
+    Mat frame;
+    
+    while (true){
+	
+		cout<<"Waiting for new Image \n";
+    	cap >> frame; //get a new frame from camera
+	
+		if(frame.empty())//if the a frame wasn't received throw an exception
+			throw readFrameError();
+		
+		else if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("yes")==0){
+		
+			cout<<"Found new Image \n";
+		
+			imwrite("../object_locator/src/locator/src/frame.ppm", frame); //save the frame
+		
+			components=numberOfComponents("../object_locator/src/locator/src/frame.ppm"); //get the number of components in the frame
+		
+			if(components<40&&components>4){//the thresholds should be changed to a better heuristic
+			
+				cout<<"Image has: "<<components<<". it is good and is sent to be compared \n";
+				
+				imwrite("../object_locator/src/locator/src/frameToSend.jpg", frame);
+				
+				writeToFile("no","../object_locator/src/locator/src/readyForNewPic.txt");
+				
+			}else{
+				cout<<"Image has: "<<components<<". it is not good and is discarded \n";
+			}
+    
+    		imshow("frames", frame);
+        
+    		if(waitKey(30) >= 0) break;
+	
+			if(ros::ok()) ros::spinOnce();
+		}
     // the camera will be deinitialized automatically in VideoCapture destructor
+	}
 
     return 0;
 }

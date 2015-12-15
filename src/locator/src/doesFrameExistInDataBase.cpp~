@@ -22,7 +22,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <string>
 #include <sstream>
 #include "fileInputOutput.h"
-#include "segmentation/compareImage.h"
+#include "include/compareImage.h"
 
 int main(int argc, char **argv){
 	
@@ -36,7 +36,7 @@ int main(int argc, char **argv){
 		int numberOfPics;
 		
 		//when no longer looking for a new image
-		if(readFromFile("../object_locator/src/locator/src/text_files/readyForNewPic.txt").compare("no")==0){
+		if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("no")==0){
 
 			//get the number of pictures already sent
 			numberOfPics=atoi(readFromFile("../object_locator/pic/numberOfPics.txt").c_str());
@@ -55,7 +55,7 @@ int main(int argc, char **argv){
 				
 				//If images have more than 15 good descriptions then they are considered similar
 				if(compareTwoImages(image, currImage)>15){
-					writeToFile("yes","../object_locator/src/locator/src/text_files/readyForNewPic.txt");
+					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
 					cout<<"Similar image found. Image discarded \n";
 					similarImage=true;
 					break;
@@ -66,15 +66,15 @@ int main(int argc, char **argv){
 			
 			if(!similarImage){
 				cout<<"Image is Different. Sending to CloudSight \n";
-				writeToFile("yes","../object_locator/src/locator/src/text_files/doneComparing.txt");
+				writeToFile("yes","../object_locator/src/locator/src/doneComparing.txt");
 				//cloudsight should read when doneComparing says yes
 				//it sets received info to no,
 				//while loop here waits till received info say yes;
-				while(readFromFile("../object_locator/src/locator/src/text_files/recievedResult.txt").compare("no")==0){
+				while(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("no")==0){
 					cout<<"Waiting For CloudSight \n";
 				}
-				if(readFromFile("../object_locator/src/locator/src/text_files/recievedResult.txt").compare("yes")==0){
-					writeToFile("no","../object_locator/src/locator/src/text_files/doneComparing.txt");
+				if(readFromFile("../object_locator/src/locator/src/recievedResult.txt").compare("yes")==0){
+					writeToFile("no","../object_locator/src/locator/src/doneComparing.txt");
 					oss << numberOfPics++;
 					result= loc + oss.str() + ext;
 					oss.str("");
@@ -84,8 +84,8 @@ int main(int argc, char **argv){
 					temp_str<<(numberOfPics);
 					string str = temp_str.str();
 					writeToFile(str.c_str(),"../object_locator/pic/numberOfPics.txt");
-					writeToFile("yes","../object_locator/src/locator/src/text_files/readyForNewPic.txt");
-					writeToFile("no","../object_locator/src/locator/src/text_files/recievedResult.txt");
+					writeToFile("yes","../object_locator/src/locator/src/readyForNewPic.txt");
+					writeToFile("no","../object_locator/src/locator/src/recievedResult.txt");
 					cout<<"CloudSight returned description. Now waiting for new image \n";
 				}
 			

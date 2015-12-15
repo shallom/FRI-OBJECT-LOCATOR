@@ -33,9 +33,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 int main (int argc, char** argv){
 
 	int sock, connected, bytes_recieved, one=1;  
-        char send_data [1024] , recv_data[1024];       
+    char send_data [1024] , recv_data[1024];       
 
-        struct sockaddr_in server_addr,client_addr;    
+    struct sockaddr_in server_addr,client_addr;    
        	socklen_t sin_size;
         
         if ((sock = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
@@ -54,7 +54,7 @@ int main (int argc, char** argv){
         bzero(&(server_addr.sin_zero),8); 
 
         if (bind(sock, (struct sockaddr *)&server_addr, sizeof(struct sockaddr))== -1) {
-            perror("Unnable to bind");
+            perror("Unable to bind");
             exit(1);
         }
 
@@ -63,14 +63,14 @@ int main (int argc, char** argv){
             exit(1);
         }
 		
-	printf("\nTCPServer Waiting for client on port");
+	    printf("\nTCPServer Waiting for client on port");
         fflush(stdout);
 
-	sin_size = sizeof(struct sockaddr_in);
+	   sin_size = sizeof(struct sockaddr_in);
 
        	connected = accept(sock, (struct sockaddr *)&client_addr,&sin_size);
 
-      	printf("\n Recieved connection from (%s , %d)", inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
+      	printf("\n Received connection from (%s , %d)", inet_ntoa(client_addr.sin_addr),ntohs(client_addr.sin_port));
 
 	while(true){
 

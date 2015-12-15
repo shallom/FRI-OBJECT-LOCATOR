@@ -33,7 +33,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 			
 				//Logic For cloudsight
 				
-					if(done comapring image)
+					if(done comparing image)
 						send image to cloudsight;
 						get response and save picture;
 						set readyForNewPic to yes;
@@ -45,7 +45,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 #include <cstdio>
 #include <cstdlib>
 #include <string>
-#include "segment.h"
+#include "segmentation/segment.h"
 #include "fileInputOutput.h"
 #include <iostream>
 #include "ros/ros.h"
@@ -62,10 +62,10 @@ int main(int argc, char** argv){
 
     int components;
 
-    VideoCapture cap(0); // open the default camera, change the number for camera differnt from default
+    VideoCapture cap(0); // open the default camera, change the number for camera different from default
     if(!cap.isOpened())  // check if camera is opened
 
-    namedWindow("frames",1); //opens up window to view webcam.
+    namedWindow("frames",1); //opens up window to view web cam.
     
     Mat frame;
     
@@ -74,10 +74,10 @@ int main(int argc, char** argv){
 		cout<<"Waiting for new Image \n";
     	cap >> frame; //get a new frame from camera
 	
-		if(frame.empty())//if the a frame wasn't recived throw an exception
+		if(frame.empty())//if the a frame wasn't received throw an exception
 			throw readFrameError();
 		
-		else if(readFromFile("../object_locator/src/locator/src/readyForNewPic.txt").compare("yes")==0){
+		else if(readFromFile("../object_locator/src/locator/src/text_files/readyForNewPic.txt").compare("yes")==0){
 		
 			cout<<"Found new Image \n";
 		
@@ -85,20 +85,14 @@ int main(int argc, char** argv){
 		
 			components=numberOfComponents("../object_locator/src/locator/src/frame.ppm"); //get the number of components in the frame
 		
-			if(components<40&&components>4){//the thresholds should be changed to a better huerisitc
+			if(components<40&&components>4){//the thresholds should be changed to a better heuristic
 			
 				cout<<"Image has: "<<components<<". it is good and is sent to be compared \n";
 				
 				imwrite("../object_locator/src/locator/src/frameToSend.jpg", frame);
 				
-				writeToFile("no","../object_locator/src/locator/src/readyForNewPic.txt");
+				writeToFile("no","../object_locator/src/locator/src/text_files/readyForNewPic.txt");
 				
-				//if true readyForNewPic still is yes and we skip the below
-				//else we set readyForNewPic to no
-				//if readyForNewPic says yes 
-				//objectDescription does its thing: gets info from cloudsight,
-				//saves the features description and room location to a database
-				//we write yes to readyForNewPic
 			}else{
 				cout<<"Image has: "<<components<<". it is not good and is discarded \n";
 			}
